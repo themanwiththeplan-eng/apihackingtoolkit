@@ -6,6 +6,7 @@ from urllib import response
 import requests as rq
 import argparse as args
 import pandas as pd
+from tkinter import *
 
 
 parser = args.ArgumentParser(description="Insert arguments for API hacking toolsuite")    
@@ -57,3 +58,12 @@ def startProgram():
 
 
 startProgram()
+
+def startGui():
+    root =Tk()
+    root.title("hAPI Toolkit :D")
+    root.configure(background="Black")
+    root.minsize(200, 200)
+    root.maxsize(500, 500)
+    root.geometry("300x300+50+50")
+    root.mainloop()
