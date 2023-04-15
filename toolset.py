@@ -75,7 +75,6 @@ def startProgram():
                 postRes = post.status_code
                 print ("GET:", f"{url}", f"{getRes}")
                 print("POST:", f"{url}", f"{postRes}")
-
         
 
 
