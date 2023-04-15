@@ -57,12 +57,14 @@ def startProgram():
             file = open(arguments.directories, "r")
             lines = file.readlines()
             for l in lines:
-                get = rq.get('https://' + arguments.domain + "/" + l)
-                post = rq.post('https://' + arguments.domain + "/" + l)
-                getResponse = get.json
-                postResponse = post.json
-                print("GET:", f"{getResponse}")
-                print("POST:",f"{postResponse}")
+                l = l.strip("\n")
+                url = "https://" + arguments.domain + "/" + l
+                get = rq.get(url)
+                post = rq.post(url)
+                getResponse = get.status_code
+                postResponse = post.status_code
+                print("GET:",f"{url}", f"{getResponse}")
+                print("POST:", f"{url}", f"{postResponse}")
         elif(arguments.subdomain):
             file = open(arguments.subdomain, "r")
             lines = file.readlines()
@@ -83,6 +85,6 @@ def startProgram():
 # TODO: Add more to the gui and get it to work when an argument is passed 
 
 
-# startProgram()
+startProgram()
 
 
