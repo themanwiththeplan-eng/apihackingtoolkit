@@ -85,6 +85,4 @@ def startProgram():
 # TODO: Add more to the gui and get it to work when an argument is passed 
 
 
-startProgram()
-
-
+# startProgram()

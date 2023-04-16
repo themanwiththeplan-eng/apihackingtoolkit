@@ -2,8 +2,14 @@ import sys
 import requests as rq
 import re
 import os
+import pandas as pd
 
 cleanr = re.compile("<.*?>")
+
+def unique(list1):
+    unique_list = pd.Series(list1).drop_duplicates().tolist()
+    for x in unique_list:
+        print(x)
 
 
 def crtsh():
@@ -13,8 +19,5 @@ def crtsh():
     response = res.text
     cleantext = re.sub(cleanr, '\n', response)
     s =re.findall(r"[a-zA-Z]*?/*.google.*", cleantext)
-    for i in s:
-        print(i)
-
-        # TODO: sort this value uniquely then add to toolset.py for more subdomain enumeration
+    unique(s)
 crtsh()
