@@ -29,7 +29,7 @@ def unique(list1):
 
 
 def crtsh():
-    url = f"https://crt.sh?q={arguments.domain}"
+    url = "https://crt.sh?q=" + arguments.domain
     headers = {"user-agent": "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:12.0) Gecko/20100101 Firefox/12.0."}
     res = rq.get(url, headers=headers)
     response = res.text
@@ -100,6 +100,5 @@ def startProgram():
 
 # TODO: Add more functionality to curl
 # TODO: Add more to the gui and get it to work when an argument is passed 
-# TODO: figure out why application hangs and continue to work on that
-
+# TODO: Get crtsh function to work within the subdomain enumeration module
 startProgram()
