@@ -48,6 +48,9 @@ def startGui():
     Label(root, text="Domain", bg="black").grid(row=0, column=1, padx=5, pady=5, sticky=E)
     domain = Entry(root, bd=3)
     domain.grid(row=0, column=2, columnspan=4, padx=5, pady=5)
+    Label(root, text="File", bg="black").grid(row=1, column=1, padx=5, pady=5, sticky=E)
+    entryfile = Entry(root, bd=3)
+    entryfile.grid(row=1, column=2, columnspan=4, padx=5, pady=5)
     runDir = Button(root, text="Directory BruteForce")
     runDir.grid(row=2, column=2, columnspan=4, padx=5, pady=5)
     runSub = Button(root, text="Subdomain Enumeration")
@@ -56,7 +59,7 @@ def startGui():
     quit.grid(row=4, column=2, columnspan=4, padx=5, pady=5)
     root.mainloop()
 
-# startGui()
+startGui()
 
 
 
@@ -101,4 +104,5 @@ def startProgram():
 # TODO: Add more functionality to curl
 # TODO: Add more to the gui and get it to work when an argument is passed 
 # TODO: Get crtsh function to work within the subdomain enumeration module
-startProgram()
+# TODO: Make file into a button to be able to upload a file and loop line by line, and append to end of domain with function buttons
+# startProgram()
