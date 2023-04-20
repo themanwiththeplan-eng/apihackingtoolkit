@@ -34,7 +34,7 @@ def crtsh():
     res = rq.get(url, headers=headers)
     response = res.text
     cleantext = re.sub(cleanr, '\n', response)
-    s =re.findall(r"[a-zA-Z]*?/*.google.*", cleantext)
+    s =re.findall(r"[a-zA-Z]*?/*." + arguments.domain + ".*", cleantext)
     unique(s)
 
 
@@ -131,5 +131,5 @@ def startProgram():
 # TODO: Add more to the gui and get it to work when an argument is passed 
 # TODO: Get crtsh function to work within the subdomain enumeration module
 # TODO: Make file into a button to be able to upload a file and loop line by line, and append to end of domain with function buttons
-# TODO: Fix vhost enumeration to not throw an error
+# TODO: Fix vhost enumeration to not throw an error, when doing more than one subdomain
 # startProgram()
