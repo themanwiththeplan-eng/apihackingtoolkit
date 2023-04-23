@@ -17,6 +17,8 @@ parser.add_argument('-dir', '--directories')
 parser.add_argument('-v','--verbose', action="store_true")
 parser.add_argument('-c', '--curl')
 parser.add_argument('-g', '--gui')
+parser.add_argument('-h', '--headers')
+parser.add_argument('-g', '--github')
 parser.add_argument('-done')
 arguments = parser.parse_args()
 
@@ -91,6 +93,9 @@ startGui()
 
 def startProgram():
     if(arguments.curl):
+        if(arguments.headers):
+            # add headers here
+            return
         response = rq.get("https://" + arguments.curl)
         print(response.text)
         status = response.status_code
@@ -124,6 +129,8 @@ def startProgram():
                 print ("GET:", f"{url}", f"{getRes}")
                 print("POST:", f"{url}", f"{postRes}")
             crtsh()
+        elif(arguments.github):
+            #TODO: introduce scraping for secrets on github using regex patterns
 
 
 
