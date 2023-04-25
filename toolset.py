@@ -1,4 +1,4 @@
-# Call function to take in positional arguments, if those arguments match with a specific letter or keyword then executabe a given other function
+# Call function to take in positional arguments, if those arguments match with a specific letter or keyword then executabe a given other function:w
 
 import sys
 import fileinput
@@ -17,8 +17,8 @@ parser.add_argument('-dir', '--directories')
 parser.add_argument('-v','--verbose', action="store_true")
 parser.add_argument('-c', '--curl')
 parser.add_argument('-g', '--gui')
-parser.add_argument('-h', '--headers')
-parser.add_argument('-g', '--github')
+parser.add_argument('--headers')
+parser.add_argument('--github')
 parser.add_argument('-done')
 arguments = parser.parse_args()
 
@@ -28,7 +28,6 @@ def unique(list1):
     unique_list = pd.Series(list1).drop_duplicates().tolist()
     for x in unique_list:
         print(x)
-
 
 def crtsh():
     url = "https://crt.sh?q=" + arguments.domain
@@ -54,11 +53,11 @@ def startGui():
         file = open(entryfile1, "r")
         lines = file.readlines()
         for l in lines:
-           l = l.strip("\n")
-           url = "https://" + l + "." + domain1
-           get = rq.get(url)
-           getRes = get.status_code
-           print(url + " " + str(getRes))
+            l = l.strip("\n")
+            url = "https://" + l + "." + domain1
+            get = rq.get(url)
+            getRes = get.status_code
+            print(url + " " + str(getRes))
     def dir_bruteforce():
         global entry
         domain1 = domain.get()
@@ -131,7 +130,7 @@ def startProgram():
             crtsh()
         elif(arguments.github):
             #TODO: introduce scraping for secrets on github using regex patterns
-
+            return
 
 
 # TODO: Add more functionality to curl
