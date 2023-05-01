@@ -8,7 +8,7 @@ import argparse as args
 import pandas as pd
 from tkinter import *
 import re
-
+from crtsh.py import *
 
 parser = args.ArgumentParser(description="Insert arguments for API hacking toolsuite")    
 parser.add_argument('-d', '--domain')
@@ -23,21 +23,6 @@ parser.add_argument('-done')
 arguments = parser.parse_args()
 
 cleanr = re.compile("<.*?>")
-
-def unique(list1):
-    unique_list = pd.Series(list1).drop_duplicates().tolist()
-    for x in unique_list:
-        print(x)
-
-def crtsh():
-    url = "https://crt.sh?q=" + arguments.domain
-    headers = {"user-agent": "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:12.0) Gecko/20100101 Firefox/12.0."}
-    res = rq.get(url, headers=headers)
-    response = res.text
-    cleantext = re.sub(cleanr, '\n', response)
-    s =re.findall(r"[a-zA-Z]*?/*." + arguments.domain + ".*", cleantext)
-    unique(s)
-
 
 def startGui():
     root =Tk()
@@ -127,7 +112,7 @@ def startProgram():
                 postRes = post.status_code
                 print ("GET:", f"{url}", f"{getRes}")
                 print("POST:", f"{url}", f"{postRes}")
-            crtsh()
+            crtsh(arguments.domain)
         elif(arguments.github):
             #TODO: introduce scraping for secrets on github using regex patterns
             return
