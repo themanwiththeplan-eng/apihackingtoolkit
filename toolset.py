@@ -8,7 +8,7 @@ import argparse as args
 import pandas as pd
 from tkinter import *
 import re
-from crtsh.py import *
+from crtsh import *
 
 parser = args.ArgumentParser(description="Insert arguments for API hacking toolsuite")    
 parser.add_argument('-d', '--domain')
