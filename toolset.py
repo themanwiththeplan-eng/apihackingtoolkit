@@ -67,6 +67,7 @@ def startProgram():
             crtsh(arguments.domain)
         elif(arguments.github):
             #TODO: introduce scraping for secrets on github using regex patterns
+            #TODO: implement a function with regex that is going to be used for scraping github for secrets
             return
 
 
