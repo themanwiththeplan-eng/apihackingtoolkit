@@ -10,6 +10,7 @@ from tkinter import *
 import re
 from crtsh import *
 from gui import *
+from shodan import *
 
 parser = args.ArgumentParser(description="Insert arguments for API hacking toolsuite")    
 parser.add_argument('-d', '--domain')
@@ -21,11 +22,12 @@ parser.add_argument('-g', '--gui')
 parser.add_argument('--headers')
 parser.add_argument('--github')
 parser.add_argument('-done')
+parser.add_argument('-sh', '--shodan')
 arguments = parser.parse_args()
 
 cleanr = re.compile("<.*?>")
 
-startGui()
+# startGui()
 
 def startProgram():
     if(arguments.curl):
@@ -69,6 +71,8 @@ def startProgram():
             #TODO: introduce scraping for secrets on github using regex patterns
             #TODO: implement a function with regex that is going to be used for scraping github for secrets
             return
+        elif(arguments.shodan):
+            shodan(arguments.shodan)
 
 
 # TODO: Add more functionality to curl
@@ -76,5 +80,4 @@ def startProgram():
 # TODO: Get crtsh function to work within the subdomain enumeration module
 # TODO: Make file into a button to be able to upload a file and loop line by line, and append to end of domain with function buttons
 # TODO: Fix vhost enumeration to not throw an error, when doing more than one subdomain
-# startProgram()
-
+startProgram() 
